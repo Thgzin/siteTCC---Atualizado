@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="styleLogin.css">
+	<title>Registro</title>
+</head>
+<body>
+	
+	<div class="container">
+		<form action="#" class="login active">
+			<h2 class="title">Entre com sua Conta</h2>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<div class="input-group">
+					<input type="email" id="email" placeholder="Endereço de Email" required>
+					<i class='bx bx-envelope'></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Senha</label>
+				<div class="input-group">
+					<input type="password" pattern=".{8,}" id="password" placeholder="Coloque sua Senha" required>
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<span class="help-text">Pelo menos 8 caracteres
+				</span>
+			</div>
+			<button type="submit" class="btn-submit" onclick="document.location='index.html'">Entrar</button>
+			<a href="#" onclick="switchForm('register', event)">Esqueceu sua senha?</a>
+			<p>Eu não tenho uma conta. <a href="#" onclick="switchForm('register', event)"> Registrar-se</a></p>
+		</form>
+
+		<form action="#" class="register">
+			<h2 class="title">Crie sua Conta</h2>
+			<div class="form-group">
+				<label for="email">Email</label>
+				<div class="input-group">
+					<input type="email" id="email" placeholder="Endereço de Email" required>
+					<i class='bx bx-envelope'></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<div class="input-group">
+					<input type="password" pattern=".{8,}" id="password" placeholder="Coloque sua Senha" required>
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<span class="help-text">Pelo menos 8 caracteres</span>
+			</div>
+			<div class="form-group">
+				<label for="confirm-pass">Confirme sua Senha</label>
+				<div class="input-group">
+					<input type="password" id="confirm-pass" placeholder="Entre com sua senha novamente" required>
+					<i class='bx bx-lock-alt' ></i>
+				</div>
+				<span class="help-text">Ambas senhas devem ser iguais</span>
+			</div>
+			<button type="submit" class="btn-submit" onclick="registerButton()">Registrar</button>
+			<p>Eu já tenho uma conta. <a href="#" onclick="switchForm('login', event)">Login</a></p>
+		</form>
+	</div>
+
+	<script src="scriptLogin.js"></script>
+</body>
+</html>

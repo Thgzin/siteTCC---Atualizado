@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!--Titulo, logo e js da pagina-->
+<head>
+<title>Agendamento Online</title>
+<meta charset="utf-8">
+<link rel="shortcut icon" href="images/icons8-react-native-48.png"/>
+<link rel="stylesheet" href="styles.css">
+<script src="https://use.fontawesome.com/5cf57e4d73.js"></script>
+<script type="text/javascript" src="introducao.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<!--Titulo, logo, css, js da pagina-->
+
+
+<!--Corpo da página com script de horário atual-->
+<body onload="startTime()">
+
+
+  
+
+<!--Cabecalho da página-->
+  <header>
+    <nav>
+      <a class="logo" href="/">Introdução</a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    <ul class="nav-list">
+      <li><a href="./index.html">Início</a></li>
+      <li><a href="./servicos.html">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#contato">Contatos</a></li>
+    </ul>
+    </nav>
+  </header>
+  <!--Cabecalho da página-->
+
+
+
+  <!--Script do javascript da página-->
+  <script src="javascript.js"></script>
+  <!--Script do javascript da página-->
+
+<!--Parte inicial, textos, imagens e botões-->
+<div id="imagem">
+  <div class="texto">
+  <p>Precisa realizar algum Reparo ou Manutenção no seu Automóvel?</p>
+  </div>
+<div class="texto">
+  <p>Então, faça agora o seu Agendamento Online do serviço que quiser,</p>
+  </div>
+
+  <div class="texto">
+    <p>Você escolhe o melhor dia e hora para ser atendido e entraremos em contato com você.</p>
+    </div>
+    
+</div>
+
+
+<div class="button1">
+  <a href="./formulario.html"><button type="button"><span></span>Começar</button></a>
+  </div>
+<!--Parte inicial, textos, imagens e botões-->
+
+
+
+
+
+<!--Sobre da página com texto e botão-->
+<section id="sobre">
+<div class="about" id="about">
+<h1 class="title1">Sobre Nós</h1> 
+
+<p>Tudo é mais fácil e prático quando é online, com esse pensamento nosso site tem a função de conseguir agendar e marcar uma revisão para seu automóvel de qualquer lugar que você esteja.</p>
+<p>"Um Site com o Objetivo de Agendar uma Revisão para seu Automóvel."
+  
+</section>
+</p>
+</div>
+
+
+<div class="button2">
+<button type="button"><span></span>Saiba Mais</button>
+</div>
+<!--Sobre da página com texto e botão-->
+
+<!--Contato da página com texto e envio do contato com utilização de um script de validação de email-->
+<section id="contato">
+  <div class="contactus" id="contactus">
+  <h1 class="title">Contato</h1>
+
+  <form action="forms.php" method="GET" id="form" onsubmit="validate()">
+    <div class="form_wrapper">
+    <div class="form_input">
+      <input type="text" name="name" id="name"   placeholder="Nome Completo" required>
+      <input type="text1" name="email" id="email" placeholder="Seu Email" required onkeyup="validation()">
+      <span class="indicator"></span> 
+      <textarea class="input" id="textsend" onkeyup="success()" name="demo" placeholder="Digite sua Mensagem..."></textarea>
+
+      <div class="button3">
+        <button type="submit" id="button" disabled>Enviar</button>
+      </form>
+<!--Contato da página com texto e envio do contato com utilização de um script de validação de email-->
+
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+</section>
+</div>
+</div>
+
+<!--Rodapé da pagina com informações e localização da empresa fictícia-->
+<div class="footer">
+<div class="footer-content">
+  <div id="txt"></div>
+
+  <h1>Nossa Localização!</h1>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58528.11197945124!2d-46.91940248578835!3d-23.532250687543176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03e63bc7a06d%3A0xc14462a7d6d04032!2sITB%20Bras%C3%ADlio%20Flores%20de%20Azevedo%20(FIEB)!5e0!3m2!1spt-BR!2sbr!4v1624132479472!5m2!1spt-BR!2sbr" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  <div class="location">
+  
+  <i class="fa fa-map-marker"></i>
+  <p>Endereço: R. Interna Grupo Bandeirante, 138 - Jardim Belval, Barueri</p>
+</div>
+  
+  <div class="location2">
+  <i class="fa fa-phone"></i>
+  <p>Telefone: +55 11 1234-5678</p>
+</div>
+
+<div class="location3">
+<i class="fa fa-envelope-square"></i>
+<p>svcAutomotivos@Outlook.com</p>
+</div>
+
+
+<div class="location4">
+<i class="fa fa-clock-o"></i>
+<p>Funcionamento: SEGUNDA a SEXTA das 9:00 às 17:00 </p>
+</div>
+
+</div>
+
+<!--Logo de redes sociais-->
+<div class="footer-bottom">
+ 
+&copy; Equipe 04 | Serviços Automotivos
+<div class="socials-links">
+<a href="#" target="_blank">
+<i class="fa fa-twitter"></i>
+<i class="fa fa-github-square"></i>
+<i class="fa fa-linkedin"></i>
+<i class="fa fa-instagram"></i>
+<!--Logo de redes sociais-->
+</div>
+</div>
+<!--Rodapé da pagina com informações e localização da empresa fictícia-->
+
+</body>
+</html>

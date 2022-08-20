@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="formulario.css" />
+  <script src="https://use.fontawesome.com/5cf57e4d73.js"></script>
+  <link rel="shortcut icon" href="images/icons8-react-native-48.png"/>
+  <script src="formulario.js" defer></script>
+  <title>Página de Agendamento</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<script>
+
+
+  function validarEmail(field) {
+  usuario = field.value.substring(0, field.value.indexOf("@"));
+  dominio = field.value.substring(field.value.indexOf("@")+ 1, field.value.length);
+  if ((usuario.length >=1) &&
+      (dominio.length >=3) &&
+      (usuario.search("@")==-1) &&
+      (dominio.search("@")==-1) &&
+      (usuario.search(" ")==-1) &&
+      (dominio.search(" ")==-1) &&
+      (dominio.search(".")!=-1) &&
+      (dominio.indexOf(".") >=1)&&
+      (dominio.lastIndexOf(".") < dominio.length - 1)) {
+  document.getElementById("msgemail").innerHTML="E-mail válido";
+  alert("email valido");
+  }
+  else{
+  document.getElementById("msgemail").innerHTML="<font color='red'>Email inválido </font>";
+  alert("E-mail invalido");
+  }
+  }
+
+  function populate(s1,s2){
+	var s1 = document.getElementById(s1);
+	var s2 = document.getElementById(s2);
+	s2.innerHTML = "";
+ 
+  var selectedValue = document.getElementById("slct1").value;
+    console.log(selectedValue);
+
+
+	if(s1.value == "Celta"){
+		var optionArray = ["|","2015x|2015","2014x|2014","2013x|2013","2012x|2012","2011x|2011","2010x|2010","2009x|2009"];
+	} else if(s1.value == "Onix"){
+		var optionArray = ["|","2022x|2022","2021x|2021","2020x|2020","2019x|2019","2018x|2018","2017x|2017","2016x|2016","2015x|2015","2014x|2014","2013x|2013"];
+	} else if(s1.value == "S10"){
+		var optionArray = ["|","2022x|2022","2021x|2021","2020x|2020","2019x|2019","2018x|2018","2017x|2017","2016x|2016","2015x|2015","2014x|2014","2013x|2013"];
+	} else if(s1.value == "Montana"){
+    var optionArray = ["|","2021x|2021","2020x|2020","2019x|2019","2018x|2018","2017x|2017","2016x|2016","2015x|2015","2014x|2014","2013x|2013","2012x|2012","2011x|2011","2010x|2010","2009x|2009"];
+  }
+
+  
+
+
+
+  
+	for(var option in optionArray){
+		var pair = optionArray[option].split("|");
+		var newOption = document.createElement("option");
+		newOption.value = pair[0];
+		newOption.innerHTML = pair[1];
+		s2.options.add(newOption);
+	}
+  }
+
+  $(document).ready(function(){
+                $(function(){
+                    var dtToday = new Date();
+                    var month = dtToday.getMonth() + 1;
+                    var day = dtToday.getDate();
+                    var year = dtToday.getFullYear();
+                    if (month < 10) {
+                        month = '0' + month.toString();
+                        if(day<10){
+                            day = '0' + day.toString();
+                        }
+
+                        var maxDate = year + '-' + month + '-' + day;
+
+                        $('#dateControl').attr('min', maxDate);
+                    }
+                }
+            )})
+
+              
+
+</script>
+
+
+<body onload="startTime()">
+
+  <header>
+    <nav>
+      <a class="logo" href="/">Formulário</a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    <ul class="nav-list">
+      <li><a href="./index.html">Início</a></li>
+      <li><a href="./servicos.html">Serviços</a></li>
+      <li><a href="./index.html">Sobre</a></li>
+      <li><a href="./index.html">Contatos</a></li>
+    </ul>
+    </nav>
+  </header>
+
+  <script src="javascript.js"></script>
+
+<div id="imagem">
+</div>
+
+
+<div class="box">
+<form action="#" class="form">
+  <h1 class="text-center">Escolha seu Veículo</h1>
+  
+  
+
+
+  <!-- Progress bar -->
+  <div class="progressbar">
+    <div class="progress" id="progress"></div>
+    
+    <div
+      class="progress-step progress-step-active"
+      data-title="Veículo"
+    ></div>
+    <div class="progress-step" data-title="Serviços"></div>
+    <div class="progress-step" data-title="Agendamento"></div>
+    <div class="progress-step" data-title="Revisar"></div>
+  </div>
+
+  <!-- Steps -->
+  <div class="form-step form-step-active">
+    <div class="input-group">
+
+
+      
+
+    </div>
+
+    <div class="container">
+      <div class="select-box">
+      
+
+        
+      </div>
+    </div>
+
+    <div class="input-group">
+      <div class="select-box">
+        
+
+
+        <select id="slct1" onchange="populate(this.id,'slct2')">
+          <option value="" disabled selected>Veiculo</option>
+          <option value="Celta">Celta</option>
+          <option value="Onix">Onix</option>
+          <option value="S10">S10</option>
+          <option value="Montana">Montana</option>
+        </select>
+
+        </div>
+    </div>
+
+
+    <div class="input-group">
+      <div class="select-box">
+        
+        <select id="slct2" name="slct2"> ano modelo
+          <option value="" disabled selected>Ano - Modelo</option>
+            
+          </select>
+        </div>
+    </div>
+
+    <div class="input-group">
+      <div class="select-box">
+        
+        <select id="slct3" name="slct3"> motor
+          <option value="" disabled selected>Motor</option>
+            <option>1.0 (Celta, Onix)</option>
+            <option>1.4 (Onix, Montana)</option>
+            <option>2.4 4x2 (S10)</option>
+            <option>2.5 4x4 (S10)</option>
+            <option>2.8 Diesel 4x4 (S10)</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="input-group">
+      <div class="select-box">
+        
+          <select id="motor">
+          <option value="" disabled selected>KM Aproximado</option>
+            <option>100.000</option>
+            <option>90.000</option>
+            <option>80.000</option>
+            <option>70.000</option>
+            <option>60.000</option>
+            <option>50.000.</option>
+            <option>40.000</option>
+            <option>30.000</option>
+            <option>20.000</option>
+            <option>10.000</option>
+          </select>
+        </div>
+    </div>
+
+    <div class="">
+      <a href="#" class="btn btn-next width-50 ml-auto">Próximo</a>
+    </div>
+  </div>
+  <div class="form-step">
+    <div class="input-group">
+      
+      <div class="checkClass">
+      <label class="container">Revisão de 90.000Km Rodados ou 9 Anos<br> <p class="colorsPrice"> 4x R$400,00</p>
+        <input type="radio" name="check" >
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="container">Revisão de 60.000Km Rodados ou 6 Anos<br> <p class="colorsPrice"> 4x R$250,00</p>
+        <input type="radio" name="check" >
+        <span class="checkmark"></span>
+      </label>
+
+      <label class="container">Revisão de 30.000Km Rodados ou 3 Anos<br>  <p class="colorsPrice">4x R$150,00 </p>
+        <input type="radio" name="check">
+        <span class="checkmark"></span>
+      </label>
+    </div>
+      
+    </div>
+    <div class="btns-group">
+      <a href="#" class="btn btn-prev">Voltar</a>
+      <a href="#" class="btn btn-next">Próximo</a>
+    </div>
+  </div>
+  <div class="form-step">
+    <div class="input-group">
+      
+      <label for="dob">Data e hora do Agendamento</label>
+      <input type="time" name="hora"/>
+
+      <input type="date" id="dateControl" placeholder="dd-mm-yyyy" value=""
+    min="1997-01-01" max="2030-12-31"/>
+
+
+      <label for="nome">Nome </label>
+      <input type="text" name="nome" id="nome" placeholder="Nome Completo" onkeyup="validar_Nome()">
+
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" placeholder="Ex.: 000.000.000-00" autocomplete="off" maxlength="14" onkeyup="maskCPF()">
+
+      <label for="tel">Telefone </label>
+      <input type="text" name="telefone" id="telefone" placeholder="Ex.: (11) 91234-1234" maxlength="15">
+  
+
+      <label for="email">Email
+        <input type="text1" name="email" id="email" placeholder="Seu Email" required onkeyup="validar_Email()">
+      </label>
+
+    </div>
+    <div class="btns-group">
+      <a href="#" class="btn btn-prev">Voltar</a>
+      <a href="#" class="btn btn-next">Próximo</a>
+    </div>
+  </div>
+  <div class="form-step">
+    <div class="input-group">
+      <p>Muito bem! Suas informações foram recebidas.</p>
+      <p>Confirmar envio?</p>
+     
+    </div>
+    <div class="btns-group">
+      <a href="#" class="btn btn-prev">Voltar</a>
+      <input type="submit" value="Enviar" class="btn" />
+    </div>
+  </div>
+</form>
+</div>
+
+
+<div class="footer">
+
+<div class="footer-content">
+  <div id="txt"></div>
+
+  <h1>Nossa Localização!</h1>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58528.11197945124!2d-46.91940248578835!3d-23.532250687543176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf03e63bc7a06d%3A0xc14462a7d6d04032!2sITB%20Bras%C3%ADlio%20Flores%20de%20Azevedo%20(FIEB)!5e0!3m2!1spt-BR!2sbr!4v1624132479472!5m2!1spt-BR!2sbr" width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+  <div class="location">
+  
+  <i class="fa fa-map-marker"></i>
+  <p>Endereço: R. Interna Grupo Bandeirante, 138 - Jardim Belval, Barueri</p>
+</div>
+  
+  <div class="location2">
+  <i class="fa fa-phone"></i>
+  <p>Telefone: +55 11 1234-5678</p>
+</div>
+
+<div class="location3">
+<i class="fa fa-envelope-square"></i>
+<p>svcAutomotivos@Outlook.com</p>
+<div id="time"></div>
+</div>
+
+
+<div class="location4">
+<i class="fa fa-clock-o"></i>
+<p>Funcionamento: SEGUNDA a SEXTA das 9:00 às 17:00 </p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+&copy; Equipe 04 | Serviços Automotivos
+<div class="socials-links">
+<a href="#" target="_blank">
+<i class="fa fa-twitter"></i>
+<i class="fa fa-github-square"></i>
+<i class="fa fa-linkedin"></i>
+<i class="fa fa-instagram"></i>
+
+
+</div>
+</div>
+
+
+</body>
+</html>
